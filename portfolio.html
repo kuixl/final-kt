@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио — KD Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <span class="logo">KD Studio</span>
+    <button class="menu-btn" id="menu-btn">☰</button>
+    <nav class="nav" id="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="portfolio.html">Портфолио</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <h1>Портфолио</h1>
+    <p>Наши работы и услуги</p>
+  </section>
+
+  <section class="tabs-section">
+    <div class="tabs">
+      <button class="tab active" data-target="web">Веб</button>
+      <button class="tab" data-target="design">Дизайн</button>
+      <button class="tab" data-target="three">3D</button>
+    </div>
+
+    <div class="tab-content active" id="web">
+      <div class="grid">
+        <div class="card">
+          <h3>Интернет-магазин</h3>
+          <p>Разработка полноценного магазина с корзиной, счётчиком товаров и адаптивным дизайном. Тёмная и светлая темы, переключаемые кнопкой.</p>
+        </div>
+        <div class="card">
+          <h3>Лендинг</h3>
+          <p>Одностраничный сайт с анимациями, слайдером и формой обратной связи. Семантическая верстка, Grid и Flexbox, CSS-анимации.</p>
+        </div>
+        <div class="card">
+          <h3>Многостраничный сайт</h3>
+          <p>Три страницы с единым стилем и навигацией: главная со слайдером, портфолио с табами и страница контактов с валидацией формы.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="design">
+      <div class="grid">
+        <div class="card">
+          <h3>Фирменный стиль</h3>
+          <p>Разработка логотипа, цветовой схемы и типографики для молодого бренда. Тёмная палитра, минималистичный подход, единый визуальный язык.</p>
+        </div>
+        <div class="card">
+          <h3>UI/UX Дизайн</h3>
+          <p>Проектирование интерфейсов для сайтов и приложений. Прототипирование, вайрфреймы, финальный дизайн с учётом удобства для пользователя.</p>
+        </div>
+        <div class="card">
+          <h3>Визуальные материалы</h3>
+          <p>Серия баннеров, обложек и графических материалов для социальных сетей, рекламных кампаний и цифровых изданий.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="three">
+      <div class="grid">
+        <div class="card">
+          <h3>3D Визуализация</h3>
+          <p>Интерактивная 3D-сцена продукта с OrbitControls — можно вращать и масштабировать прямо в браузере без сторонних плагинов.</p>
+        </div>
+        <div class="card">
+          <h3>Анимированная сцена</h3>
+          <p>Три объекта с освещением, плавным вращением и управлением мышью. AmbientLight и DirectionalLight для реалистичного вида.</p>
+        </div>
+        <div class="card">
+          <h3>Импорт GLB модели</h3>
+          <p>Загрузка собственной 3D-модели в формате GLB через GLTFLoader. Модель добавляется на сцену и взаимодействует с освещением.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>KD Studio &mdash; Даровский Константин, 3ВД1</p>
+</footer>
+
+</body>
+</html>

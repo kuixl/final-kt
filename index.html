@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KD Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <span class="logo">KD Studio</span>
+    <button class="menu-btn" id="menu-btn">☰</button>
+    <nav class="nav" id="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="portfolio.html">Портфолио</a>
+      <a href="contacts.html">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Творческая студия</h1>
+      <p>Создаём цифровые проекты с душой. Дизайн, разработка, 3D-визуализация.</p>
+      <a href="portfolio.html" class="btn">Смотреть работы</a>
+    </div>
+  </section>
+
+  <section class="slider-section">
+    <h2>Наши направления</h2>
+    <div class="slider">
+      <div class="slides">
+        <div class="slide active">
+          <div class="slide-content">
+            <h3>Веб-разработка</h3>
+            <p>Создаём современные сайты с адаптивным дизайном, плавными анимациями и удобным интерфейсом. Каждый проект разрабатывается с учётом потребностей пользователей.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <h3>3D-визуализация</h3>
+            <p>Разрабатываем интерактивные 3D-сцены для веба с помощью Three.js. Вращение, освещение, импорт собственных моделей — всё это доступно прямо в браузере.</p>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide-content">
+            <h3>Графический дизайн</h3>
+            <p>Создаём фирменный стиль, логотипы и визуальные материалы. Разрабатываем UI/UX для сайтов и мобильных приложений с учётом современных трендов.</p>
+          </div>
+        </div>
+      </div>
+      <button class="prev">&#8249;</button>
+      <button class="next">&#8250;</button>
+      <div class="dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="scene-section">
+    <h2>3D Сцена</h2>
+    <p>Интерактивная визуализация — управляйте мышью</p>
+    <div class="canvas-wrapper" id="canvas-wrapper">
+      <canvas id="three-canvas"></canvas>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h2>О студии</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Опыт</h3>
+        <p>Работаем с современными технологиями: HTML, CSS, JavaScript, Three.js. Каждый проект — это уникальное решение под задачу клиента.</p>
+      </div>
+      <div class="about-card">
+        <h3>Подход</h3>
+        <p>Мы не используем шаблоны. Каждый сайт создаётся с нуля, с вниманием к деталям и качеству кода. Чистая семантика, адаптивность, анимации.</p>
+      </div>
+      <div class="about-card">
+        <h3>Результат</h3>
+        <p>Сайты, которые работают быстро, выглядят красиво на любом устройстве и решают конкретные задачи бизнеса или личного бренда.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>KD Studio &mdash; Даровский Константин, 3ВД1</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script src="three-scene.js"></script>
+
+</body>
+</html>
