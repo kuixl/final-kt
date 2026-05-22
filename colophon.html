@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>nichive - Colophon</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">nichive</a>
+      <button class="burger" aria-label="Меню">☰</button>
+      <nav class="nav">
+        <a href="index.html">Object</a>
+        <a href="exhibitions.html">Exhibitions</a>
+        <a href="stories.html">Stories</a>
+        <a href="manifesto.html">Manifesto</a>
+        <a href="materials.html">Materials</a>
+        <a href="subscribe.html" class="cta">Subscribe →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="meta-strip"><span>COLOPHON</span><span>HONEST CREDITS · WHAT WAS AI-ASSISTED</span><span class="rust">⌁ NICHIVE</span></div>
+    <hr class="divline divline--ink">
+
+    <section class="hero">
+      <h1 class="hero__title" style="font-size:clamp(48px,9vw,140px)">Colophon.</h1>
+      <p class="lead" style="margin-top:24px">Честная страница. Дизайн, концепция, контент, структура и сборка проекта - мои. Но часть технически сложных вещей реализована с ассистентом <strong>ИИ (Claude)</strong>. Перечисляю именно их, чтобы не выдавать за чистый ручной код.</p>
+    </section>
+
+    <section style="padding-top:0">
+      <div data-assemble>
+        <div class="principle" style="border-top:1px solid var(--line)"><div class="principle__num" style="font-size:48px">01</div><div><h2 class="h3">Three.js hero - вращение по прокрутке + авто-фит камеры</h2><p class="principle__t">Сцена в <code>js/three-hero.js</code>: pivot-группа, расчёт дистанции камеры через радиус ограничивающей сферы и тригонометрию поля зрения (<code>r / sin(fov/2)</code>), связка прокрутки/перетаскивания/idle-вращения. Математику фрейминга и структуру сцены писал ИИ.</p></div></div>
+
+        <div class="principle"><div class="principle__num" style="font-size:48px">02</div><div><h2 class="h3">Three.js галерея - OrbitControls + мульти-сцена</h2><p class="principle__t"><code>js/three-gallery.js</code>: интерактивная орбита с зумом и демпфированием, центрирование каждой модели в (0,0,0), сцена с двумя моделями ножниц с разными поворотами, подключение MeshoptDecoder. Архитектура переключения экспонатов и фит - ИИ.</p></div></div>
+
+        <div class="principle"><div class="principle__num" style="font-size:48px">03</div><div><h2 class="h3">Оптимизация 3D-моделей для веба</h2><p class="principle__t">Пайплайн <code>gltf-transform</code>: meshopt-сжатие геометрии + перекодирование текстур в WebP. Главный экспонат сжат с <strong>80&nbsp;МБ до 3.3&nbsp;МБ</strong> (1.5&nbsp;млн → ~440&nbsp;тыс. полигонов) без потери текстур. Команды и параметры - ИИ.</p></div></div>
+
+        <div class="principle"><div class="principle__num" style="font-size:48px">04</div><div><h2 class="h3">Процедурный анимированный ASCII-арт</h2><p class="principle__t">Бегущий «архивный лог» в футере: синусоидальное поле плотности, отображённое на рампу символов <code>░▒▓█</code>, плюс циклический сдвиг строк. Алгоритм генерации - ИИ.</p></div></div>
+
+        <div class="principle"><div class="principle__num" style="font-size:48px">05</div><div><h2 class="h3">Хореография подписки</h2><p class="principle__t">Многошаговая анимация при отправке формы: плавное зачёркивание строк → растворение формы → пошаговая «сборка» плашки успеха с галочкой. Тайминги и каскад - ИИ.</p></div></div>
+
+        <div class="principle"><div class="principle__num" style="font-size:48px">06</div><div><h2 class="h3">Сборка по скроллу + дизайн-система</h2><p class="principle__t">IntersectionObserver с каскадными переходами на cubic-bezier (<code>[data-assemble]</code>), адаптивная CSS-архитектура и токены дизайн-системы. Реализация - ИИ; визуальные решения - мои (макет в Figma).</p></div></div>
+      </div>
+
+      <hr class="divline">
+      <p class="lead" style="margin-top:40px">Всё остальное - HTML-разметка контента, тексты, подбор референсов, 3D-модели (импорт/правка в Blender), фотографии, структура страниц и общий дизайн - сделано мной.</p>
+      <p class="eyebrow" style="margin-top:40px">/ Source</p>
+      <div style="display:flex;gap:32px;flex-wrap:wrap;margin-top:12px">
+        <a href="https://www.figma.com/design/OlKZVGpwvLKL0bYEG5aXeh/Untitled?node-id=119-2" target="_blank" rel="noopener" class="cta-link">Figma - макет проекта →</a>
+        <a href="https://github.com/kuixl/final-kt" target="_blank" rel="noopener" class="cta-link">GitHub - исходный код →</a>
+      </div>
+      <div style="margin-top:40px"><a href="index.html" class="cta-link">← Назад к архиву</a></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top"><span>NICHIVE</span><span>A DIGITAL ARCHIVE OF ONE OBJECT PER MONTH</span><span>EST. 2026</span></div>
+      <div class="footer__logo">nichive</div>
+      <div class="footer__cols">
+        <div class="footer__col"><h4>/ Archive</h4><a href="index.html">Object N°03</a><a href="exhibitions.html">Exhibitions</a><a href="materials.html">Materials</a></div>
+        <div class="footer__col"><h4>/ Editorial</h4><a href="stories.html">Stories</a><a href="manifesto.html">Manifesto</a></div>
+        <div class="footer__col"><h4>/ Contact</h4><a href="https://t.me/lupfort" target="_blank" rel="noopener">Telegram канал</a><a href="https://t.me/kuixl" target="_blank" rel="noopener">Telegram · @kuixl</a><a href="https://www.instagram.com/kripmin" target="_blank" rel="noopener">Instagram*</a><a href="mailto:DarovskiyKI23@st.ithub.ru">Email</a></div>
+        <div class="footer__col"><h4>/ Subscribe</h4><a href="subscribe.html">Один email в месяц</a></div>
+      </div>
+      <div class="footer__bottom"><p class="footer__legal">© 2026 nichive · * Meta Platforms (Facebook, Instagram) признана экстремистской организацией и запрещена на территории РФ.</p><a class="ai-note" href="colophon.html">⌁ made with ai · colophon →</a></div>
+    </div>
+  </footer>
+</body>
+</html>

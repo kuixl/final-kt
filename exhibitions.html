@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nichive - Exhibitions | архив объектов</title>
+  <meta name="description" content="Архив выставок nichive. Каждый объект остаётся навсегда. Интерактивная 3D-галерея экспонатов: Tabi, флакон, манекен, инструменты ателье.">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }}
+  </script>
+  <script type="module" src="js/three-gallery.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">nichive</a>
+      <button class="burger" aria-label="Меню">☰</button>
+      <nav class="nav">
+        <a href="index.html">Object</a>
+        <a href="exhibitions.html" class="active">Exhibitions</a>
+        <a href="stories.html">Stories</a>
+        <a href="manifesto.html">Manifesto</a>
+        <a href="materials.html">Materials</a>
+        <a href="subscribe.html" class="cta">Subscribe →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="meta-strip"><span>ARCHIVE / 06 OBJECTS</span><span>EVERY OBJECT REMAINS</span><span class="rust">DRAG TO ORBIT · CLICK TO SWITCH</span></div>
+    <hr class="divline divline--ink">
+
+    <section class="hero">
+      <h1 class="hero__title" style="font-size:clamp(48px,11vw,200px)">Exhibitions.</h1>
+      <div class="hero__grid">
+        <p class="lead">Каждый объект, который проходил через nichive, остаётся в архиве. Ничто не удаляется, не уценяется, не выходит из коллекции - даже когда сменяется месяц.</p>
+        <p class="lead">Объект отбирается не за «модность», а за вес: что он добавил к разговору о ремесле, материале и форме. История важнее срока хранения.</p>
+      </div>
+
+      <!-- INTERACTIVE 3D GALLERY: all textured models, orbit + switch -->
+      <div class="viewer" id="gallery-3d">
+        <span class="viewer__label">/ INTERACTIVE 3D · Three.js · OrbitControls</span>
+        <span class="viewer__num" id="gallery-name">1 / 6</span>
+        <div class="viewer__loader">LOADING 3D…</div>
+      </div>
+      <div class="slider__nav">
+        <button class="slider__btn" id="gal-prev" aria-label="Предыдущая модель">‹</button>
+        <button class="slider__btn" id="gal-next" aria-label="Следующая модель">›</button>
+        <span class="mono muted" style="align-self:center">переключай экспонаты · крути мышью</span>
+      </div>
+    </section>
+
+    <section>
+      <hr class="divline">
+      <p class="eyebrow" style="margin-top:24px">/ Принципы отбора</p>
+      <div class="brief" data-assemble style="grid-template-columns:repeat(3,1fr);margin-top:24px">
+        <div><div class="principle__num" style="font-size:48px">01</div><h3 class="h3">Происхождение видно</h3><p class="brief__sub">Знаем мастерскую, год, имя дизайнера, материал. Без анонимности.</p></div>
+        <div><div class="principle__num" style="font-size:48px">02</div><h3 class="h3">Метод документирован</h3><p class="brief__sub">Понимаем, как объект сделан - и можем рассказать на одной странице.</p></div>
+        <div><div class="principle__num" style="font-size:48px">03</div><h3 class="h3">История ещё жива</h3><p class="brief__sub">Объект продолжают носить. Архив - не музейная витрина.</p></div>
+      </div>
+    </section>
+
+    <section>
+      <hr class="divline">
+      <p class="eyebrow" style="margin-top:24px">/ Архив</p>
+      <div class="cards" data-assemble>
+        <div class="card"><div class="card__img"><img src="img/Rectangle-7.jpg" alt="Maison Margiela Tabi"></div><div class="card__body"><div class="card__obj now">OBJECT N°03 · NOW SHOWING</div><div class="card__name">Maison Margiela Tabi</div><div class="card__date">SS 1989 · FOOTWEAR · PARIS</div></div></div>
+        <div class="card"><div class="card__img"><img src="img/Rectangle-8.jpg" alt="Helmut Lang Bondage Jacket"></div><div class="card__body"><div class="card__obj">OBJECT N°02</div><div class="card__name">Helmut Lang Bondage Jacket</div><div class="card__date">SS 1998 · OUTERWEAR · VIENNA</div></div></div>
+        <div class="card"><div class="card__img"><img src="img/Rectangle-6.jpg" alt="Comme des Garçons Lumps Knit"></div><div class="card__body"><div class="card__obj">OBJECT N°01</div><div class="card__name">Comme des Garçons Lumps Knit</div><div class="card__date">AW 1997 · KNITWEAR · TOKYO</div></div></div>
+      </div>
+      <p class="moment__body" style="margin-top:48px;max-width:900px">«Объект завершается тем, кто его носит. Архив - попытка зафиксировать момент перед этим.»</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top"><span>NICHIVE</span><span>A DIGITAL ARCHIVE OF ONE OBJECT PER MONTH</span><span>EST. 2026</span></div>
+      <div class="footer__logo">nichive</div>
+      <div class="footer__cols">
+        <div class="footer__col"><h4>/ Archive</h4><a href="index.html">Object N°03</a><a href="exhibitions.html">Exhibitions</a><a href="materials.html">Materials</a></div>
+        <div class="footer__col"><h4>/ Editorial</h4><a href="stories.html">Stories</a><a href="manifesto.html">Manifesto</a></div>
+        <div class="footer__col"><h4>/ Contact</h4><a href="https://t.me/lupfort" target="_blank" rel="noopener">Telegram канал</a><a href="https://t.me/kuixl" target="_blank" rel="noopener">Telegram · @kuixl</a><a href="https://www.instagram.com/kripmin" target="_blank" rel="noopener">Instagram*</a><a href="mailto:DarovskiyKI23@st.ithub.ru">Email</a></div>
+        <div class="footer__col"><h4>/ Subscribe</h4><a href="subscribe.html">Один email в месяц</a></div>
+      </div>
+      <div class="footer__bottom"><p class="footer__legal">© 2026 nichive · * Meta Platforms (Facebook, Instagram) признана экстремистской организацией и запрещена на территории РФ.</p><a class="ai-note" href="colophon.html">⌁ made with ai · colophon →</a></div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,267 @@
+/* ============================================================
+   nichive - digital archive of fashion
+   КТ4 / Фронтенд: HTML/CSS/JS + Three.js
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,900;1,300&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --cream:#EFEAE2;
+  --paper:#F5F1EA;
+  --ink:#0A0A0A;
+  --ink-2:#3A3530;
+  --muted:#7A746C;
+  --rust:#9C3A2B;
+  --line:#C9C2B8;
+  --line-dark:#1A1612;
+  --on-dark:#EFEAE2;
+
+  --margin:80px;
+  --maxw:1440px;
+  --mono:'JetBrains Mono',monospace;
+  --sans:'Inter',sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--cream);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--margin)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--rust);text-transform:uppercase}
+.mono{font-family:var(--mono)}
+.muted{color:var(--muted)}
+
+/* ---------- HEADER / NAV ---------- */
+.header{
+  position:sticky;top:0;z-index:100;
+  background:var(--cream);
+  border-bottom:1px solid var(--ink);
+}
+.header__inner{
+  max-width:var(--maxw);margin:0 auto;padding:0 var(--margin);
+  height:72px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-weight:900;font-size:24px;letter-spacing:-.02em}
+.nav{display:flex;gap:32px;align-items:center}
+.nav a{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);transition:color .2s}
+.nav a:hover,.nav a.active{color:var(--ink)}
+.nav a.cta{color:var(--rust)}
+.burger{display:none;background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink)}
+
+/* ---------- META STRIP ---------- */
+.meta-strip{
+  display:flex;justify-content:space-between;gap:24px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);padding:32px 0 8px;
+}
+.meta-strip .rust{color:var(--rust)}
+.divline{height:1px;background:var(--line);border:0}
+.divline--ink{background:var(--ink)}
+
+/* ---------- HERO ---------- */
+.hero{padding:40px 0 0}
+.hero__title{font-weight:900;line-height:1.04;letter-spacing:-.04em;font-size:clamp(56px,13vw,200px)}
+.hero__grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:24px}
+.lead{font-size:clamp(16px,1.4vw,20px);line-height:1.6;color:var(--ink-2);max-width:620px}
+
+/* ---------- 3D VIEWER ---------- */
+.viewer{
+  position:relative;width:100%;height:600px;background:var(--paper);margin-top:48px;
+}
+.viewer canvas{display:block;width:100%!important;height:100%!important}
+.viewer__label{position:absolute;top:24px;left:24px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--rust)}
+.viewer__hint{position:absolute;bottom:20px;left:24px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.viewer__num{position:absolute;top:24px;right:24px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.viewer__loader{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--muted)}
+
+/* ---------- CTA LINK ---------- */
+.cta-link{
+  display:inline-block;font-family:var(--mono);font-size:14px;letter-spacing:.14em;text-transform:uppercase;
+  padding-bottom:8px;border-bottom:1px solid var(--ink);transition:color .2s,border-color .2s;
+}
+.cta-link:hover{color:var(--rust);border-color:var(--rust)}
+
+/* ---------- SECTIONS ---------- */
+section{padding:80px 0}
+.sec-head{margin-bottom:40px}
+.h2{font-weight:900;line-height:1.05;letter-spacing:-.02em;font-size:clamp(36px,5vw,80px)}
+.h3{font-weight:600;font-size:24px;line-height:1.2}
+
+/* ---------- BRIEF ---------- */
+.brief{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:24px}
+.brief__label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.brief__val{font-weight:900;font-size:clamp(20px,2vw,32px);margin-top:6px}
+.brief__sub{font-size:13px;line-height:1.6;color:var(--ink-2);margin-top:8px}
+
+/* ---------- ARCHIVE CARDS ---------- */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:40px}
+.card{background:var(--paper)}
+.card__img{aspect-ratio:1/1;overflow:hidden;background:var(--line)}
+.card__img img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%);transition:filter .4s,transform .6s}
+.card:hover .card__img img{filter:grayscale(0%);transform:scale(1.03)}
+.card__body{padding:20px}
+.card__obj{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted)}
+.card__obj.now{color:var(--rust)}
+.card__name{font-weight:900;font-size:20px;line-height:1.15;margin:8px 0}
+.card__date{font-family:var(--mono);font-size:11px;color:var(--muted)}
+
+/* ---------- STORY MOMENTS ---------- */
+.moment{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;padding:60px 0;border-top:1px solid var(--line)}
+.moment__meta{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.moment__meta .num{color:var(--rust);display:block;margin-top:8px;letter-spacing:.14em}
+.moment__cap{font-weight:900;font-size:clamp(28px,3vw,48px);line-height:1.1;letter-spacing:-.01em}
+.moment__body{font-style:italic;font-weight:300;font-size:clamp(16px,1.4vw,20px);line-height:1.6;color:var(--ink-2);margin-top:20px;max-width:520px}
+.moment__img{aspect-ratio:1/1;overflow:hidden;background:var(--line)}
+.moment__img img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%)}
+
+/* ---------- MANIFESTO ---------- */
+.principle{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:50px 0;border-top:1px solid var(--line)}
+.principle__num{font-weight:900;font-size:64px;line-height:.9;color:var(--rust)}
+.principle__q{font-weight:900;font-size:clamp(28px,3.2vw,48px);line-height:1.15;letter-spacing:-.01em}
+.principle__t{font-size:16px;line-height:1.7;color:var(--ink-2);margin-top:20px;max-width:760px}
+
+/* ---------- MATERIALS CHAIN ---------- */
+.chain{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin:40px 0;border-top:1px solid var(--ink);padding-top:40px}
+.step__dot{font-family:var(--mono);font-size:14px;color:var(--muted)}
+.step__dot.active{color:var(--rust)}
+.step__num{font-weight:900;font-size:48px;line-height:.9;margin:8px 0}
+.step__num.active{color:var(--rust)}
+.step__name{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink)}
+.step__ru{font-weight:900;font-size:22px;margin-top:6px}
+.step__loc{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:6px}
+.panel{background:var(--paper);padding:48px;display:grid;grid-template-columns:1fr 400px;gap:40px;align-items:start}
+.panel__img{aspect-ratio:3/4;overflow:hidden;background:var(--line)}
+.panel__img img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%)}
+.facts{margin-top:32px;border-top:1px solid var(--line);padding-top:24px}
+.fact{display:grid;grid-template-columns:160px 1fr;gap:16px;padding:8px 0}
+.fact__l{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted)}
+.fact__v{font-weight:500;font-size:16px}
+
+/* ---------- SUBSCRIBE / FORM ---------- */
+.subscribe-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end}
+.field{position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--ink);padding:18px 0}
+.field input{width:100%;border:none;background:none;font-family:var(--sans);font-size:18px;color:var(--ink);outline:none}
+.field input::placeholder{color:var(--muted)}
+.btn{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--on-dark);border:none;padding:18px 28px;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--rust)}
+.success{background:var(--paper);padding:40px;margin-top:32px;display:none}
+.success.show{display:block}
+.success__check{font-family:var(--mono);font-size:32px;color:var(--rust)}
+.success__h{font-weight:900;font-size:clamp(24px,3vw,48px);line-height:1.1;margin:16px 0 8px}
+
+/* ---------- SLIDER (home) ---------- */
+.slider{position:relative;margin-top:40px;overflow:hidden}
+.slider__track{display:flex;transition:transform .5s ease}
+.slide{min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.slide__img{aspect-ratio:4/3;overflow:hidden;background:var(--line)}
+.slide__img img{width:100%;height:100%;object-fit:cover;filter:grayscale(100%)}
+.slide__q{font-weight:300;font-style:italic;font-size:clamp(24px,3vw,44px);line-height:1.3}
+.slider__nav{display:flex;gap:16px;margin-top:32px;align-items:center}
+.slider__btn{font-family:var(--mono);font-size:18px;background:none;border:1px solid var(--ink);width:48px;height:48px;cursor:pointer;transition:background .2s,color .2s}
+.slider__btn:hover{background:var(--ink);color:var(--on-dark)}
+.slider__dots{display:flex;gap:8px;margin-left:auto}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer}
+.dot.active{background:var(--rust)}
+
+/* ---------- ASCII ART (animated) ---------- */
+.ascii{font-family:var(--mono);font-size:11px;line-height:1.3;color:var(--muted);white-space:pre;overflow:hidden;letter-spacing:.05em}
+.ascii--frame{border:1px solid var(--line);padding:14px 16px;background:var(--paper);margin-top:24px;opacity:.8}
+.ascii--footer{color:rgba(239,234,226,.35);margin-top:24px}
+
+/* ---------- FOOTER ---------- */
+.footer{background:var(--ink);color:var(--on-dark);padding:48px 0 24px;margin-top:80px}
+.footer__top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.14em;opacity:.7}
+.footer__logo{font-weight:900;font-size:clamp(64px,16vw,200px);line-height:.9;letter-spacing:-.04em;margin:24px 0}
+.footer__cols{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.2);padding-top:24px}
+.footer__col h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--rust);margin-bottom:12px}
+.footer__col a{display:block;font-family:var(--mono);font-size:11px;opacity:.85;margin-bottom:6px}
+.footer__bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-top:24px;flex-wrap:wrap}
+.footer__legal{font-family:var(--mono);font-size:9px;opacity:.4;line-height:1.6;max-width:760px}
+.ai-note{font-family:var(--mono);font-size:9px;letter-spacing:.1em;opacity:.28;transition:opacity .25s,color .25s;white-space:nowrap}
+.ai-note:hover{opacity:.9;color:var(--rust)}
+
+/* ---------- ASSEMBLE-ON-SCROLL ---------- */
+[data-assemble] > *{opacity:0;transform:translateY(24px);filter:blur(4px)}
+[data-assemble].in > *{opacity:1;transform:none;filter:none;
+  transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1),filter .6s}
+[data-assemble].in > *:nth-child(1){transition-delay:.05s}
+[data-assemble].in > *:nth-child(2){transition-delay:.18s}
+[data-assemble].in > *:nth-child(3){transition-delay:.31s}
+[data-assemble].in > *:nth-child(4){transition-delay:.44s}
+[data-assemble].in > *:nth-child(5){transition-delay:.57s}
+@media(prefers-reduced-motion:reduce){
+  [data-assemble] > *{opacity:1;transform:none;filter:none}
+}
+
+/* ---------- SUBSCRIBE CHOREOGRAPHY ---------- */
+/* lines strike through then form dissolves */
+#subscribe-form{position:relative;transition:opacity .5s ease,transform .5s ease}
+#subscribe-form .strikeable{position:relative;display:inline-block}
+#subscribe-form .strikeable::after{content:"";position:absolute;left:0;top:55%;width:0;height:1px;background:var(--rust);transition:width .45s ease}
+#subscribe-form.sent .strikeable::after{width:100%}
+#subscribe-form.gone{opacity:0;transform:translateY(-10px);pointer-events:none}
+/* success card assembles part by part */
+.success.show > *{opacity:0;transform:translateY(18px) scale(.98);animation:assemble .6s cubic-bezier(.2,.7,.2,1) forwards}
+.success.show > *:nth-child(1){animation-delay:.10s}
+.success.show > *:nth-child(2){animation-delay:.30s}
+.success.show > *:nth-child(3){animation-delay:.50s}
+@keyframes assemble{to{opacity:1;transform:none}}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  :root{--margin:20px}
+  .nav{position:fixed;inset:72px 0 auto 0;background:var(--cream);flex-direction:column;gap:0;
+       border-bottom:1px solid var(--ink);transform:translateY(-150%);transition:transform .3s;padding:0}
+  .nav.open{transform:translateY(0)}
+  .nav a{padding:18px 20px;width:100%;border-bottom:1px solid var(--line);font-size:14px}
+  .burger{display:block}
+  .hero__grid,.brief,.cards,.moment,.subscribe-grid,.slide,.panel{grid-template-columns:1fr}
+  .chain{grid-template-columns:1fr 1fr;gap:24px}
+  .principle{grid-template-columns:60px 1fr;gap:12px}
+  .principle__num{font-size:40px}
+  .viewer{height:60vh;min-height:380px}
+  .moment__img,.slide__img{margin-top:24px}
+}
+
+/* ============================================================
+   MOBILE FIXES (≤900px) — overrides
+   ============================================================ */
+@media(max-width:900px){
+  html,body{overflow-x:hidden;max-width:100vw}
+
+  /* всё в одну колонку даже при инлайн-стилях (убирает скролл вправо) */
+  .hero__grid,.brief,.cards,.moment,.subscribe-grid,.slide,.panel,
+  .brief[style]{grid-template-columns:1fr!important}
+
+  /* 3D-вьюер: подписи не наезжают — мельче, имя модели уводим вниз */
+  .viewer{height:54vh;min-height:340px}
+  .viewer__label{font-size:9px;letter-spacing:.08em;max-width:62%;line-height:1.3}
+  .viewer__num{top:auto;bottom:12px;right:14px;font-size:9px;max-width:80%;text-align:right;line-height:1.3}
+  .slider__nav{flex-wrap:wrap;gap:10px}
+  .slider__nav .mono{font-size:10px;flex-basis:100%}
+
+  /* materials: панель — текст по левому краю, меньше паддинг */
+  .panel{padding:24px;text-align:left}
+  .panel > div{text-align:left}
+
+  /* принципы (manifesto/subscribe/exhibitions): номер над текстом, воздух */
+  .principle{grid-template-columns:1fr!important;gap:8px;padding:32px 0}
+  .principle__num{font-size:34px!important;line-height:1}
+
+  /* subscribe: успех ближе к секции */
+  .success{margin-top:20px;padding:26px}
+
+  /* stories: ровные отступы момента */
+  .moment{gap:18px;padding:36px 0}
+
+  /* секции компактнее на телефоне */
+  section{padding:56px 0}
+}

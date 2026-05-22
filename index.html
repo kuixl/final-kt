@@ -3,103 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KD Studio</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <title>nichive - Object N°03, Maison Margiela Tabi | цифровой архив моды</title>
+  <meta name="description" content="nichive - цифровой музей архивной моды. Один объект в месяц. Object N°03 - Maison Margiela Tabi: материал, происхождение, истории. Интерактивная 3D-визуализация.">
+  <meta name="keywords" content="nichive, архивная мода, Maison Margiela Tabi, цифровой музей, 3D, fashion archive">
+  <meta property="og:title" content="nichive - Object N°03, Tabi">
+  <meta property="og:description" content="Цифровой архив моды. Один объект в месяц.">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+  { "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }}
+  </script>
+  <script type="module" src="js/three-hero.js"></script>
+  <script defer src="js/main.js"></script>
 </head>
 <body>
 
-<header class="header">
-  <div class="header-inner">
-    <span class="logo">KD Studio</span>
-    <button class="menu-btn" id="menu-btn">☰</button>
-    <nav class="nav" id="nav-links">
-      <a href="index.html">Главная</a>
-      <a href="portfolio.html">Портфолио</a>
-      <a href="contacts.html">Контакты</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Творческая студия</h1>
-      <p>Создаём цифровые проекты с душой. Дизайн, разработка, 3D-визуализация.</p>
-      <a href="portfolio.html" class="btn">Смотреть работы</a>
+  <!-- ========== HEADER ========== -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="logo">nichive</a>
+      <button class="burger" aria-label="Меню">☰</button>
+      <nav class="nav">
+        <a href="index.html" class="active">Object</a>
+        <a href="exhibitions.html">Exhibitions</a>
+        <a href="stories.html">Stories</a>
+        <a href="manifesto.html">Manifesto</a>
+        <a href="materials.html">Materials</a>
+        <a href="subscribe.html" class="cta">Subscribe →</a>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <section class="slider-section">
-    <h2>Наши направления</h2>
-    <div class="slider">
-      <div class="slides">
-        <div class="slide active">
-          <div class="slide-content">
-            <h3>Веб-разработка</h3>
-            <p>Создаём современные сайты с адаптивным дизайном, плавными анимациями и удобным интерфейсом. Каждый проект разрабатывается с учётом потребностей пользователей.</p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="slide-content">
-            <h3>3D-визуализация</h3>
-            <p>Разрабатываем интерактивные 3D-сцены для веба с помощью Three.js. Вращение, освещение, импорт собственных моделей — всё это доступно прямо в браузере.</p>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="slide-content">
-            <h3>Графический дизайн</h3>
-            <p>Создаём фирменный стиль, логотипы и визуальные материалы. Разрабатываем UI/UX для сайтов и мобильных приложений с учётом современных трендов.</p>
-          </div>
+  <main class="wrap">
+
+    <!-- ========== META + HERO ========== -->
+    <div class="meta-strip">
+      <span>N°03 - MAY 2026</span>
+      <span>ACQUIRED · MAISON MARGIELA SS89</span>
+      <span class="rust">NEXT OBJECT IN 17 DAYS</span>
+    </div>
+    <hr class="divline divline--ink">
+
+    <section class="hero">
+      <h1 class="hero__title">Object<br>N°03 - Tabi.</h1>
+      <div class="hero__grid">
+        <p class="lead">Раздвоенный кожаный ботинок. Возрождён Maison Margiela в коллекции SS89 как референс на японскую таби (足袋) - обувь рабочих и монахов. Производство - Италия, мастерская Roveda. Кожа теленка, ручная прошивка, 8 стежков на сантиметр.</p>
+        <div>
+          <a href="stories.html" class="cta-link">Witness its day →</a>
         </div>
       </div>
-      <button class="prev">&#8249;</button>
-      <button class="next">&#8250;</button>
-      <div class="dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+
+      <!-- 3D viewer: tabi.glb, scroll-driven rotation -->
+      <div class="viewer" id="hero-3d">
+        <span class="viewer__label">/ INTERACTIVE · Three.js · drag &amp; scroll</span>
+        <span class="viewer__num">03 / VIEW</span>
+        <div class="viewer__loader">LOADING 3D…</div>
       </div>
+    </section>
+
+    <!-- ========== BRIEF ========== -->
+    <section>
+      <hr class="divline">
+      <p class="eyebrow" style="margin-top:24px">/ В кратце</p>
+      <div class="brief" data-assemble>
+        <div><div class="brief__label">Origin</div><div class="brief__val">Maison Margiela</div><div class="brief__sub">SS89 collection · Paris</div></div>
+        <div><div class="brief__label">Material</div><div class="brief__val">Calf leather</div><div class="brief__sub">Tuscany tannery · vegetable cure</div></div>
+        <div><div class="brief__label">Method</div><div class="brief__val">Hand-stitched</div><div class="brief__sub">8 stitches / cm · Roveda atelier</div></div>
+        <div><div class="brief__label">Status</div><div class="brief__val">Active exhibit</div><div class="brief__sub">May 1 → May 31 / 2026</div></div>
+      </div>
+    </section>
+
+    <!-- ========== STORY SLIDER ========== -->
+    <section>
+      <hr class="divline">
+      <p class="eyebrow" style="margin-top:24px">/ Дневник объекта</p>
+      <h2 class="h2" style="margin-top:12px">A day with the object.</h2>
+      <div class="slider" data-slider>
+        <div class="slider__track">
+          <div class="slide">
+            <div class="slide__img"><img src="img/Rectangle-1.jpg" alt="06:47, кухня - Анна надевает Tabi"></div>
+            <p class="slide__q">«Я надеваю их перед тем, как выйти к свету. Кожа ещё хранит тепло ночной комнаты.» <span class="mono muted">- 06:47</span></p>
+          </div>
+          <div class="slide">
+            <div class="slide__img"><img src="img/Rectangle-2.jpg" alt="10:15, парк - Tabi на гравии"></div>
+            <p class="slide__q">«Гравий ощущается через подошву иначе. Я начинаю замечать, какая поверхность подо мной.» <span class="mono muted">- 10:15</span></p>
+          </div>
+          <div class="slide">
+            <div class="slide__img"><img src="img/Rectangle-4.jpg" alt="17:45, лестница театра"></div>
+            <p class="slide__q">«Подъём по лестнице - другой ритм. Передняя половина стопы работает как пружина.» <span class="mono muted">- 17:45</span></p>
+          </div>
+        </div>
+        <div class="slider__nav">
+          <button class="slider__btn prev" aria-label="Назад">‹</button>
+          <button class="slider__btn next" aria-label="Вперёд">›</button>
+          <div class="slider__dots"></div>
+        </div>
+      </div>
+      <div style="margin-top:32px"><a href="stories.html" class="cta-link">Read full story →</a></div>
+    </section>
+
+    <!-- ========== ARCHIVE PREVIEW ========== -->
+    <section>
+      <hr class="divline">
+      <div class="meta-strip"><span class="eyebrow">/ Архив</span><span>Всего объектов в архиве - 03</span></div>
+      <h2 class="h2">Каждый объект остаётся<br>в архиве навсегда.</h2>
+      <div class="cards" data-assemble>
+        <div class="card">
+          <div class="card__img"><img src="img/Rectangle-6.jpg" alt="Comme des Garçons Lumps Knit"></div>
+          <div class="card__body"><div class="card__obj">OBJECT N°01</div><div class="card__name">Comme des Garçons Lumps Knit</div><div class="card__date">AW 1997 · TOKYO</div></div>
+        </div>
+        <div class="card">
+          <div class="card__img"><img src="img/Rectangle-8.jpg" alt="Helmut Lang Bondage Jacket"></div>
+          <div class="card__body"><div class="card__obj">OBJECT N°02</div><div class="card__name">Helmut Lang Bondage Jacket</div><div class="card__date">SS 1998 · VIENNA</div></div>
+        </div>
+        <div class="card">
+          <div class="card__img"><img src="img/Rectangle-7.jpg" alt="Maison Margiela Tabi"></div>
+          <div class="card__body"><div class="card__obj now">OBJECT N°03 · NOW SHOWING</div><div class="card__name">Maison Margiela Tabi</div><div class="card__date">SS 1989 · PARIS</div></div>
+        </div>
+      </div>
+      <div style="margin-top:40px"><a href="exhibitions.html" class="cta-link">Enter the archive →</a></div>
+    </section>
+
+    <!-- ========== SUBSCRIBE TEASER ========== -->
+    <section>
+      <hr class="divline">
+      <p class="eyebrow" style="margin-top:24px">/ Подписка</p>
+      <h2 class="h2">Один email в месяц.<br>Когда приходит новый объект.</h2>
+      <p class="lead" style="margin-top:24px">Никаких рассылок, реферальных программ, скидок. Только письмо-открытка о новом экспонате - раз в месяц, в день приобретения. <a href="subscribe.html" class="cta-link" style="margin-top:24px">Subscribe →</a></p>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer__top"><span>NICHIVE</span><span>A DIGITAL ARCHIVE OF ONE OBJECT PER MONTH</span><span>EST. 2026</span></div>
+      <div class="footer__logo">nichive</div>
+      <div class="footer__cols">
+        <div class="footer__col"><h4>/ Archive</h4><a href="index.html">Object N°03</a><a href="exhibitions.html">Exhibitions</a><a href="materials.html">Materials</a></div>
+        <div class="footer__col"><h4>/ Editorial</h4><a href="stories.html">Stories</a><a href="manifesto.html">Manifesto</a></div>
+        <div class="footer__col"><h4>/ Contact</h4><a href="https://t.me/lupfort" target="_blank" rel="noopener">Telegram канал</a><a href="https://t.me/kuixl" target="_blank" rel="noopener">Telegram · @kuixl</a><a href="https://www.instagram.com/kripmin" target="_blank" rel="noopener">Instagram*</a><a href="mailto:DarovskiyKI23@st.ithub.ru">Email</a></div>
+        <div class="footer__col"><h4>/ Subscribe</h4><a href="subscribe.html">Один email в месяц</a></div>
+      </div>
+      <div class="footer__bottom"><p class="footer__legal">© 2026 nichive · * Meta Platforms (Facebook, Instagram) признана экстремистской организацией и запрещена на территории РФ.</p><a class="ai-note" href="colophon.html">⌁ made with ai · colophon →</a></div>
     </div>
-  </section>
-
-  <section class="scene-section">
-    <h2>3D Сцена</h2>
-    <p>Интерактивная визуализация — управляйте мышью</p>
-    <div class="canvas-wrapper" id="canvas-wrapper">
-      <canvas id="three-canvas"></canvas>
-    </div>
-  </section>
-
-  <section class="about-section">
-    <h2>О студии</h2>
-    <div class="about-grid">
-      <div class="about-card">
-        <h3>Опыт</h3>
-        <p>Работаем с современными технологиями: HTML, CSS, JavaScript, Three.js. Каждый проект — это уникальное решение под задачу клиента.</p>
-      </div>
-      <div class="about-card">
-        <h3>Подход</h3>
-        <p>Мы не используем шаблоны. Каждый сайт создаётся с нуля, с вниманием к деталям и качеству кода. Чистая семантика, адаптивность, анимации.</p>
-      </div>
-      <div class="about-card">
-        <h3>Результат</h3>
-        <p>Сайты, которые работают быстро, выглядят красиво на любом устройстве и решают конкретные задачи бизнеса или личного бренда.</p>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <p>KD Studio &mdash; Даровский Константин, 3ВД1</p>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-<script src="three-scene.js"></script>
+  </footer>
 
 </body>
 </html>
