@@ -43,8 +43,8 @@
     if(!footer)return;
     var pre=document.createElement('pre');
     pre.className='ascii ascii--footer';
-    var legal=footer.querySelector('.footer__legal');
-    footer.insertBefore(pre,legal);
+    var anchor=footer.querySelector('.footer__bottom');
+    if(anchor){footer.insertBefore(pre,anchor);}else{footer.appendChild(pre);}
     var dens=' .:-=+*#%@░▒▓█';
     var W=64;
     var rows=[
