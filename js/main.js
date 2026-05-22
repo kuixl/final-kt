@@ -69,16 +69,16 @@
     },120);
   })();
 
-  // --- home slider ---
+  // --- home slider (arrows + dots + touch swipe) ---
   var slider=document.querySelector('[data-slider]');
   if(slider){
     var track=slider.querySelector('.slider__track');
     var slides=slider.querySelectorAll('.slide');
     var dotsBox=slider.querySelector('.slider__dots');
-    var i=0;
+    var i=0, n=slides.length, auto;
     slides.forEach(function(_,k){
       var d=document.createElement('span');d.className='dot'+(k===0?' active':'');
-      d.addEventListener('click',function(){i=k;render();});
+      d.addEventListener('click',function(){go(k);});
       dotsBox.appendChild(d);
     });
     var dots=dotsBox.querySelectorAll('.dot');
@@ -86,8 +86,32 @@
       track.style.transform='translateX(-'+(i*100)+'%)';
       dots.forEach(function(d,k){d.classList.toggle('active',k===i);});
     }
-    slider.querySelector('.prev').addEventListener('click',function(){i=(i-1+slides.length)%slides.length;render();});
-    slider.querySelector('.next').addEventListener('click',function(){i=(i+1)%slides.length;render();});
-    setInterval(function(){i=(i+1)%slides.length;render();},6000);
+    function go(k){ i=(k+n)%n; render(); restart(); }
+    function next(){ go(i+1); }
+    function prev(){ go(i-1); }
+    function restart(){ clearInterval(auto); auto=setInterval(next,6000); }
+
+    var pb=slider.querySelector('.prev'), nb=slider.querySelector('.next');
+    if(pb) pb.addEventListener('click',prev);
+    if(nb) nb.addEventListener('click',next);
+
+    // touch swipe (mobile)
+    var x0=null;
+    track.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+    track.addEventListener('touchend',function(e){
+      if(x0===null)return;
+      var dx=e.changedTouches[0].clientX-x0;
+      if(Math.abs(dx)>40){ dx<0?next():prev(); }
+      x0=null;
+    },{passive:true});
+    // mouse drag (desktop)
+    var mx=null;
+    track.addEventListener('mousedown',function(e){mx=e.clientX;});
+    window.addEventListener('mouseup',function(e){
+      if(mx===null)return; var dx=e.clientX-mx;
+      if(Math.abs(dx)>50){ dx<0?next():prev(); } mx=null;
+    });
+
+    render(); restart();
   }
 })();
